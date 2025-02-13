@@ -20,8 +20,7 @@ class billClass:
         self.icon_title=PhotoImage(file=r"C:\Users\N I T R O 5\Desktop\Inventory-Management-System\images\logo1.png")
         title=Label(self.root,text="Inventory Management System",image=self.icon_title,compound=LEFT,font=("times new roman",40,"bold"),bg="#010c48",fg="white",anchor="w",padx=20).place(x=0,y=0,relwidth=1,height=70)
 
-        #------------ logout button -----------
-        btn_logout=Button(self.root,text="Logout",font=("times new roman",15,"bold"),bg="yellow",cursor="hand2").place(x=1150,y=10,height=50,width=150)
+
 
         #------------ clock -----------------
         self.lbl_clock=Label(self.root,text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS",font=("times new roman",15),bg="#4d636d",fg="white")
@@ -351,8 +350,8 @@ class billClass:
     def bill_top(self):
         self.invoice=int(time.strftime("%H%M%S"))+int(time.strftime("%d%m%Y"))
         bill_top_temp=f'''
-\t\tXYZ-Inventory
-\t Phone No. 9899459288 , Delhi-110053
+\t\tHarey Ram Wholesale
+\t Phone No. 99...... , Kathmandu
 {str("="*46)}
  Customer Name: {self.var_cname.get()}
  Ph. no. : {self.var_contact.get()}

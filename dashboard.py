@@ -9,21 +9,23 @@ from supplier import supplierClass
 from category import categoryClass
 from product import productClass
 from sales import salesClass
+from billing import billClass
 
 class IMS:
     def __init__(self, root):
         self.root = root
         self.root.geometry("1350x700+110+80")
-        self.root.title("Inventory Management System | Nishant Gupta")
+        self.root.title("Inventory Management System")
         self.root.resizable(False, False)
         self.root.config(bg="white")
 
         #------------- title --------------
+
         self.icon_title = PhotoImage(file=r"C:\Users\N I T R O 5\Desktop\Inventory-Management-System\images\logo1.png")
-        title = Label(self.root, text="Inventory Management System", image=self.icon_title, compound=LEFT, font=("times new roman", 40, "bold"), bg="#010c48", fg="white", anchor="w", padx=20).place(x=0, y=0, relwidth=1, height=70)
+        title = Label(self.root, text="Inventory Management System", image=self.icon_title, compound=LEFT, font=("Helvetica", 40, "italic"), bg="#283593", fg="white", anchor="w", padx=20).place(x=0, y=0, relwidth=1, height=70)
 
         #------------ logout button -----------
-        btn_logout = Button(self.root, text="Logout", font=("times new roman", 15, "bold"), bg="yellow", cursor="hand2").place(x=1150, y=10, height=50, width=150)
+        btn_logout = Button(self.root, text="Logout", font=("times new roman", 15, "bold"), bg="yellow", cursor="hand2", command=self.logout).place(x=1150, y=10, height=50, width=150)
 
         #------------ clock -----------------
         self.lbl_clock = Label(self.root, text="Welcome to Inventory Management System\t\t Date: DD:MM:YYYY\t\t Time: HH:MM:SS", font=("times new roman", 15), bg="#4d636d", fg="white")
@@ -48,7 +50,7 @@ class IMS:
         btn_category = Button(LeftMenu, text="Category", command=self.category, image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 20, "bold"), bg="white", bd=3, cursor="hand2").pack(side=TOP, fill=X)
         btn_product = Button(LeftMenu, text="Products", command=self.product, image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 20, "bold"), bg="white", bd=3, cursor="hand2").pack(side=TOP, fill=X)
         btn_sales = Button(LeftMenu, text="Sales", command=self.sales, image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 20, "bold"), bg="white", bd=3, cursor="hand2").pack(side=TOP, fill=X)
-        btn_exit = Button(LeftMenu, text="Exit", image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 20, "bold"), bg="white", bd=3, cursor="hand2").pack(side=TOP, fill=X)
+        btn_product = Button(LeftMenu, text="Billing", command=self.billing, image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 20, "bold"), bg="white", bd=3, cursor="hand2").pack(side=TOP, fill=X)
 
         #----------- content ----------------
         self.lbl_employee = Label(self.root, text="Total Employee\n{ 0 }", bd=5, relief=RIDGE, bg="#33bbf9", fg="white", font=("goudy old style", 20, "bold"))
@@ -67,15 +69,13 @@ class IMS:
         self.lbl_sales.place(x=650, y=300, height=150, width=300)
 
         #------------ footer -----------------
-        lbl_footer = Label(self.root, text="IMS-Inventory Management System | Developed by Nishant Gupta\nFor any Technical Issues Contact: 9899459288", font=("times new roman", 12), bg="#4d636d", fg="white").pack(side=BOTTOM, fill=X)
+        lbl_footer = Label(self.root, text="IMS-Inventory Management System | Developed by .......\nFor any Technical Issues Contact:.........", font=("times new roman", 12), bg="#4d636d", fg="white").pack(side=BOTTOM, fill=X)
 
         self.update_content()
     
 
     #-------------- functions ----------------
 
-    
-    
 
     def employee(self):
         self.new_win = Toplevel(self.root)
@@ -116,8 +116,7 @@ class IMS:
             cur.execute("select * from supplier")
             supplier = cur.fetchall()
             self.lbl_supplier.config(text=f"Total Supplier\n[ {str(len(supplier))} ]")
-            
-            
+
             bill_path = r'C:\Users\N I T R O 5\Desktop\Inventory-Management-System\bill'
             bill = len(os.listdir(bill_path))
             self.lbl_sales.config(text=f"Total Sales\n[ {str(bill)} ]")
@@ -128,9 +127,19 @@ class IMS:
             self.lbl_clock.after(200, self.update_content)
         except Exception as ex:
             messagebox.showerror("Error", f"Error due to : {str(ex)}", parent=self.root)
+    
+    def billing(self):
+        self.new_win = Toplevel(self.root)
+        self.new_obj = billClass(self.new_win)  # Open billing window
+
+    def logout(self):
+        self.root.destroy()
+        from login import Login  # Import placed here to avoid circular import
+        self.login_win = Tk()
+        self.new_login = Login(self.login_win)
+        self.login_win.mainloop()
 
 if __name__ == "__main__":
     root = Tk()
     obj = IMS(root)
     root.mainloop()
-

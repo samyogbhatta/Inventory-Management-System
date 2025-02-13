@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import messagebox
-from dashboard import IMS  # Import IMS class from ims.py file
 from PIL import Image, ImageTk  # Importing PIL for image handling
 
 class Login:
@@ -85,6 +84,7 @@ class Login:
             messagebox.showerror("Login Failed", "Invalid username or password")
 
     def open_ims_window(self):
+        from dashboard import IMS  # Import placed here to avoid circular import
         ims_root = Tk()  # Create a new root for the IMS window
         ims_obj = IMS(ims_root)  # Initialize IMS class with the root window
         ims_root.mainloop()  # Start the IMS window's main loop
