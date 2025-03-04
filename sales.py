@@ -71,7 +71,7 @@ class salesClass:
         del self.blll_list[:]
         self.Sales_List.delete(0, END)
         
-        bill_path = r'C:\Users\N I T R O 5\Desktop\Inventory-Management-System\bill'
+        bill_path = r'bill'
         
         for i in os.listdir(bill_path):
             if i.split('.')[-1] == 'txt':
@@ -83,7 +83,7 @@ class salesClass:
         index_ = self.Sales_List.curselection()
         file_name = self.Sales_List.get(index_)
         
-        bill_path = r'C:\Users\N I T R O 5\Desktop\Inventory-Management-System\bill'
+        bill_path = r'bill'
         
         self.bill_area.delete('1.0', END)
         
@@ -96,7 +96,7 @@ class salesClass:
             messagebox.showerror("Error", "Invoice no. should be required", parent=self.root)
         else:
             if self.var_invoice.get() in self.blll_list:
-                bill_path = r'C:\Users\N I T R O 5\Desktop\Inventory-Management-System\bill'
+                bill_path = r'bill'
                 
                 with open(os.path.join(bill_path, f'{self.var_invoice.get()}.txt'), 'r') as fp:
                     self.bill_area.delete('1.0', END)

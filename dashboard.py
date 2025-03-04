@@ -23,7 +23,7 @@ class IMS:
         self.root.config(bg="#f0f0f0")
 
         #------------- title --------------
-        self.icon_title = PhotoImage(file=r"C:/Users/N I T R O 5/Desktop/Inventory-Management-System/images/logo1.png")
+        self.icon_title = PhotoImage(file=r"images\logo1.png")
         title = Label(self.root, text=" Inventory Management System", image=self.icon_title, compound=LEFT, font=("Helvetica", 30, "bold"), bg="#1e3c72", fg="white", anchor="w", padx=20)
         title.place(x=0, y=0, relwidth=1, height=85)
 
@@ -42,7 +42,7 @@ class IMS:
         self.update_time()
 
         #---------------- left menu ---------------
-        self.MenuLogo = Image.open(r"C:/Users/N I T R O 5/Desktop/Inventory-Management-System/images/menu_im3.png")
+        self.MenuLogo = Image.open(r"images\menu_im3.png")
         self.MenuLogo = self.MenuLogo.resize((180, 180))
         self.MenuLogo = ImageTk.PhotoImage(self.MenuLogo)
         LeftMenu = Frame(self.root, bd=2, relief=FLAT, bg="#1e3c72")
@@ -54,7 +54,7 @@ class IMS:
         lbl_menu = Label(LeftMenu, text="Menu", font=("times new roman", 20, "bold"), bg="#1e3c72", fg="white")
         lbl_menu.pack(side=TOP, fill=X)
 
-        self.icon_side = PhotoImage(file=r"C:/Users/N I T R O 5/Desktop/Inventory-Management-System/images/side.png")
+        self.icon_side = PhotoImage(file=r"images\side.png")
 
         btn_employee = Button(LeftMenu, text="Employee", command=self.employee, image=self.icon_side, compound=LEFT, padx=5, anchor="w", font=("times new roman", 18, "bold"), bg="#1e3c72", fg="white", bd=0, cursor="hand2")
         btn_employee.pack(side=TOP, fill=X, pady=5)
@@ -147,7 +147,7 @@ class IMS:
             supplier = cur.fetchall()
             self.lbl_supplier.config(text=f"Total Supplier\n[ {str(len(supplier))} ]")
 
-            bill_path = r'C:/Users/N I T R O 5/Desktop/Inventory-Management-System/bill'
+            bill_path = r'bill'
             bill = len(os.listdir(bill_path))
             self.lbl_sales.config(text=f"Total Sales\n[ {str(bill)} ]")
 

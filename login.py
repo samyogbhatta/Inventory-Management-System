@@ -10,14 +10,14 @@ class Login:
         self.root.resizable(False, False)
 
         # Add a background image
-        self.bg_image = Image.open(r"C:\Users\N I T R O 5\Desktop\Inventory-Management-System\images\background.jpg")
+        self.bg_image = Image.open(r"images\background.jpg")
         self.bg_image = self.bg_image.resize((1000, 600), Image.LANCZOS)
         self.bg_photo = ImageTk.PhotoImage(self.bg_image)
         self.bg_label = Label(self.root, image=self.bg_photo)
         self.bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
         # Add a portrait-style image on the left side
-        self.portrait_image = Image.open(r"C:\Users\N I T R O 5\Desktop\Inventory-Management-System\images\portrait.jpg")
+        self.portrait_image = Image.open(r"images\portrait.jpg")
         self.portrait_image = self.portrait_image.resize((300, 800), Image.LANCZOS)  # Resize to portrait dimensions
         self.portrait_photo = ImageTk.PhotoImage(self.portrait_image)
         self.portrait_label = Label(self.root, image=self.portrait_photo, bg="#f4f4f4")
