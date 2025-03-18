@@ -67,7 +67,7 @@ class Login:
         self.login_button = Button(self.frame, width=39, pady=7, text='Sign in', bg='#57a1f8', fg='white', border=0, command=self.login)
         self.login_button.place(x=35, y=204)
 
-        Label(self.frame, text="Don't have an account?", fg='black', bg='white', font=('Microsoft YaHei UI Light', 9)).place(x=75, y=270)
+        Label(self.frame, text="Forget Password?", fg='black', bg='white', font=('Microsoft YaHei UI Light', 9)).place(x=75, y=270)
 
         self.sign_up = Button(self.frame, width=6, text='Sign up', border=0, bg='white', cursor='hand2', fg='#57a1f8')
         self.sign_up.place(x=215, y=270)
