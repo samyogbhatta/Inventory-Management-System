@@ -3,7 +3,7 @@ from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 import sqlite3
 
-class employeeClass:
+class employeeClass: # class
     def __init__(self, root):
         self.root = root
         self.root.geometry("1100x500+220+120")
